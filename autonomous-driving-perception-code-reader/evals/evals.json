@@ -1,0 +1,41 @@
+{
+  "skill_name": "autonomous-driving-perception-code-reader",
+  "evals": [
+    {
+      "id": 0,
+      "prompt": "请阅读 /home/hy/.claude/skills/autonomous-driving-perception-code-reader-workspace/fixtures/camera_bev 这个小型多相机 BEV 感知代码。重点从数据集输入开始讲：类别、相机顺序、图像原始大小和模型输入大小、lidar2img/cam_intrinsic 等 metadata 怎么进入模型；然后解释 backbone、FPN、BEV/spatial cross-attention、DETR-style decoder、loss 和最终输出。能关联到 BEVFormer/DETR3D 等论文的地方请说明证据和不确定性，并给出后续改进方向。",
+      "expected_output": "A structured Chinese/English mixed report that starts from camera dataset/input pipeline, identifies classes, camera order, image sizes, metadata/calibration, traces model modules and outputs, and links BEVFormer/DETR3D-like ideas cautiously.",
+      "files": ["/home/hy/.claude/skills/autonomous-driving-perception-code-reader-workspace/fixtures/camera_bev"],
+      "expectations": [
+        "The report explicitly mentions the camera order and the model input image size used by the fixture.",
+        "The report explains how lidar2img or cam_intrinsic metadata enters the model path.",
+        "The report describes the flow from backbone/FPN to BEV/spatial cross-attention and decoder/output.",
+        "The report links the code to at least one relevant paper name while noting evidence or uncertainty."
+      ]
+    },
+    {
+      "id": 1,
+      "prompt": "请阅读 /home/hy/.claude/skills/autonomous-driving-perception-code-reader-workspace/fixtures/lidar_points 这个小型 LiDAR 感知代码。先确认点云每个点是 4 维还是 5 维，各维含义要从 dataloader 或 config 找证据；再解释 voxel/pillar/BEV 特征怎么构造，CenterHead 怎么解码 3D box，输出坐标系和后处理是什么。最后补充一下 CenterPoint/SECOND/PointPillars 这类论文思路在代码里有没有体现。",
+      "expected_output": "A report that explicitly checks 5D point feature meaning, follows pillar/BEV preprocessing into model tensors, explains CenterHead outputs/post-processing, and maps code to LiDAR perception papers with evidence.",
+      "files": ["/home/hy/.claude/skills/autonomous-driving-perception-code-reader-workspace/fixtures/lidar_points"],
+      "expectations": [
+        "The report states whether the point tensor is 4D or 5D and explains each dimension from code evidence.",
+        "The report explains the voxel/pillar to BEV feature construction path.",
+        "The report describes how CenterHead decodes 3D boxes and what the output fields mean.",
+        "The report mentions at least one LiDAR paper name and the code evidence for the mapping."
+      ]
+    },
+    {
+      "id": 2,
+      "prompt": "请阅读 /home/hy/.claude/skills/autonomous-driving-perception-code-reader-workspace/fixtures/lane_map 这个小型车道线/地图元素感知代码。请先从 dataset 和 annotation 讲清楚车线类型、lane definition、点序和坐标转换，尤其是原始标注怎么变成模型输入/target；然后解释 image backbone、IPM/BEV、polyline decoder、topology head，输出的 polyline/graph/score 分别表示什么。顺带说明有哪些论文专门改进 lane topology 或 vectorized map perception。",
+      "expected_output": "A lane/map-focused report emphasizing lane taxonomy, annotation-to-target conversion, coordinate frames, decoder/topology outputs, and relevant lane/map/vectorized map perception papers.",
+      "files": ["/home/hy/.claude/skills/autonomous-driving-perception-code-reader-workspace/fixtures/lane_map"],
+      "expectations": [
+        "The report names the lane types or map element types used by the fixture.",
+        "The report explains how lane annotations are converted into model targets or normalized points.",
+        "The report describes the decoder and topology head outputs in concrete terms.",
+        "The report mentions at least one lane or vectorized map perception paper name with code evidence or caveat."
+      ]
+    }
+  ]
+}

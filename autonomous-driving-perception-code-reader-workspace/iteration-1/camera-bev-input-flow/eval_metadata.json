@@ -1,0 +1,11 @@
+{
+  "eval_id": 0,
+  "eval_name": "camera-bev-input-flow",
+  "prompt": "请阅读 /home/hy/.claude/skills/autonomous-driving-perception-code-reader-workspace/fixtures/camera_bev 这个小型多相机 BEV 感知代码。重点从数据集输入开始讲：类别、相机顺序、图像原始大小和模型输入大小、lidar2img/cam_intrinsic 等 metadata 怎么进入模型；然后解释 backbone、FPN、BEV/spatial cross-attention、DETR-style decoder、loss 和最终输出。能关联到 BEVFormer/DETR3D 等论文的地方请说明证据和不确定性，并给出后续改进方向。",
+  "assertions": [
+    "The report explicitly mentions the camera order and the model input image size used by the fixture.",
+    "The report explains how lidar2img or cam_intrinsic metadata enters the model path.",
+    "The report describes the flow from backbone/FPN to BEV/spatial cross-attention and decoder/output.",
+    "The report links the code to at least one relevant paper name while noting evidence or uncertainty."
+  ]
+}

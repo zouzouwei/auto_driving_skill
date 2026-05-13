@@ -1,0 +1,11 @@
+{
+  "eval_id": 1,
+  "eval_name": "lidar-point-dimensions",
+  "prompt": "请阅读 /home/hy/.claude/skills/autonomous-driving-perception-code-reader-workspace/fixtures/lidar_points 这个小型 LiDAR 感知代码。先确认点云每个点是 4 维还是 5 维，各维含义要从 dataloader 或 config 找证据；再解释 voxel/pillar/BEV 特征怎么构造，CenterHead 怎么解码 3D box，输出坐标系和后处理是什么。最后补充一下 CenterPoint/SECOND/PointPillars 这类论文思路在代码里有没有体现。",
+  "assertions": [
+    "The report states whether the point tensor is 4D or 5D and explains each dimension from code evidence.",
+    "The report explains the voxel/pillar to BEV feature construction path.",
+    "The report describes how CenterHead decodes 3D boxes and what the output fields mean.",
+    "The report mentions at least one LiDAR paper name and the code evidence for the mapping."
+  ]
+}

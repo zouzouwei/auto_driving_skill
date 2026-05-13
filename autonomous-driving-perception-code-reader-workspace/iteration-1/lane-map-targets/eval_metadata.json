@@ -1,0 +1,11 @@
+{
+  "eval_id": 2,
+  "eval_name": "lane-map-targets",
+  "prompt": "请阅读 /home/hy/.claude/skills/autonomous-driving-perception-code-reader-workspace/fixtures/lane_map 这个小型车道线/地图元素感知代码。请先从 dataset 和 annotation 讲清楚车线类型、lane definition、点序和坐标转换，尤其是原始标注怎么变成模型输入/target；然后解释 image backbone、IPM/BEV、polyline decoder、topology head，输出的 polyline/graph/score 分别表示什么。顺带说明有哪些论文专门改进 lane topology 或 vectorized map perception。",
+  "assertions": [
+    "The report names the lane types or map element types used by the fixture.",
+    "The report explains how lane annotations are converted into model targets or normalized points.",
+    "The report describes the decoder and topology head outputs in concrete terms.",
+    "The report mentions at least one lane or vectorized map perception paper name with code evidence or caveat."
+  ]
+}

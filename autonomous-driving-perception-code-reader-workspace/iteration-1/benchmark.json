@@ -1,0 +1,322 @@
+{
+  "metadata": {
+    "skill_name": "autonomous-driving-perception-code-reader",
+    "skill_path": "/home/hy/.claude/skills/autonomous-driving-perception-code-reader",
+    "executor_model": "claude-sonnet-4-6",
+    "analyzer_model": "claude-opus-4-7",
+    "timestamp": "2026-05-14T00:00:00Z",
+    "evals_run": [
+      0,
+      1,
+      2
+    ],
+    "runs_per_configuration": 1
+  },
+  "runs": [
+    {
+      "eval_id": 0,
+      "eval_name": "camera-bev-input-flow",
+      "configuration": "with_skill",
+      "run_number": 1,
+      "result": {
+        "pass_rate": 1.0,
+        "passed": 4,
+        "failed": 0,
+        "total": 4,
+        "time_seconds": 176.982,
+        "tokens": 0,
+        "tool_calls": 0,
+        "errors": 0
+      },
+      "expectations": [
+        {
+          "text": "The report explicitly mentions the camera order and the model input image size used by the fixture.",
+          "passed": true,
+          "evidence": "The report explicitly mentions the six-camera order and the resized model input shape `B x 6 x 3 x 256 x 704`."
+        },
+        {
+          "text": "The report explains how lidar2img or cam_intrinsic metadata enters the model path.",
+          "passed": true,
+          "evidence": "The report explains that `dataset.py` returns `lidar2img` and `cam_intrinsic`, and that `Collect3D` keeps camera geometry metadata."
+        },
+        {
+          "text": "The report describes the flow from backbone/FPN to BEV/spatial cross-attention and decoder/output.",
+          "passed": true,
+          "evidence": "The report traces `ResNet -> FPN -> SpatialCrossAttentionBEV -> DETR3DHead` and describes the BEV tensor shape."
+        },
+        {
+          "text": "The report links the code to at least one relevant paper name while noting evidence or uncertainty.",
+          "passed": true,
+          "evidence": "The report links the code to BEVFormer and DETR3D while noting the analogy is approximate because the transformer/decode logic is stubbed."
+        }
+      ],
+      "notes": [
+        "The report is a solid code-reading summary, but the eval assertions mostly check coverage rather than deep correctness.",
+        "This run did not reveal a failure mode that distinguishes the skill from a strong baseline."
+      ]
+    },
+    {
+      "eval_id": 0,
+      "eval_name": "camera-bev-input-flow",
+      "configuration": "without_skill",
+      "run_number": 1,
+      "result": {
+        "pass_rate": 1.0,
+        "passed": 4,
+        "failed": 0,
+        "total": 4,
+        "time_seconds": 79.392,
+        "tokens": 0,
+        "tool_calls": 0,
+        "errors": 0
+      },
+      "expectations": [
+        {
+          "text": "The report explicitly mentions the camera order and the model input image size used by the fixture.",
+          "passed": true,
+          "evidence": "The report explicitly mentions the six-camera order and the resized model input shape `B x 6 x 3 x 256 x 704`."
+        },
+        {
+          "text": "The report explains how lidar2img or cam_intrinsic metadata enters the model path.",
+          "passed": true,
+          "evidence": "The report explains that `dataset.py` returns `lidar2img` and `cam_intrinsic`, and that `Collect3D` keeps camera geometry metadata."
+        },
+        {
+          "text": "The report describes the flow from backbone/FPN to BEV/spatial cross-attention and decoder/output.",
+          "passed": true,
+          "evidence": "The report traces `ResNet -> FPN -> SpatialCrossAttentionBEV -> DETR3DHead` and describes the BEV tensor shape."
+        },
+        {
+          "text": "The report links the code to at least one relevant paper name while noting evidence or uncertainty.",
+          "passed": true,
+          "evidence": "The report links the code to BEVFormer and DETR3D while noting the analogy is approximate because the transformer/decode logic is stubbed."
+        }
+      ],
+      "notes": [
+        "The report is a solid code-reading summary, but the eval assertions mostly check coverage rather than deep correctness.",
+        "This run did not reveal a failure mode that distinguishes the skill from a strong baseline."
+      ]
+    },
+    {
+      "eval_id": 1,
+      "eval_name": "lidar-point-dimensions",
+      "configuration": "with_skill",
+      "run_number": 1,
+      "result": {
+        "pass_rate": 1.0,
+        "passed": 4,
+        "failed": 0,
+        "total": 4,
+        "time_seconds": 219.753,
+        "tokens": 0,
+        "tool_calls": 0,
+        "errors": 0
+      },
+      "expectations": [
+        {
+          "text": "The report states whether the point tensor is 4D or 5D and explains each dimension from code evidence.",
+          "passed": true,
+          "evidence": "The report states that the point tensor is 5D: `x, y, z, intensity, timestamp_lag`, backed by `load_dim=5` and the dataset tensor shape."
+        },
+        {
+          "text": "The report explains the voxel/pillar to BEV feature construction path.",
+          "passed": true,
+          "evidence": "The report explains the `PillarFeatureNet -> PointPillarsScatter -> SECOND` BEV pipeline and the 1440x1440 BEV canvas."
+        },
+        {
+          "text": "The report describes how CenterHead decodes 3D boxes and what the output fields mean.",
+          "passed": true,
+          "evidence": "The report describes the CenterHead outputs (`heatmap`, `reg`, `height`, `dim`, `rot`, `vel`) and says `decode_heatmap` is a placeholder that returns zero boxes."
+        },
+        {
+          "text": "The report mentions at least one LiDAR paper name and the code evidence for the mapping.",
+          "passed": true,
+          "evidence": "The report maps the structure to PointPillars, SECOND, and CenterPoint, with an explicit caveat that decoding and loss are stubs."
+        }
+      ],
+      "notes": [
+        "The report is a solid code-reading summary, but the eval assertions mostly check coverage rather than deep correctness.",
+        "This run did not reveal a failure mode that distinguishes the skill from a strong baseline."
+      ]
+    },
+    {
+      "eval_id": 1,
+      "eval_name": "lidar-point-dimensions",
+      "configuration": "without_skill",
+      "run_number": 1,
+      "result": {
+        "pass_rate": 1.0,
+        "passed": 4,
+        "failed": 0,
+        "total": 4,
+        "time_seconds": 321.236,
+        "tokens": 0,
+        "tool_calls": 0,
+        "errors": 0
+      },
+      "expectations": [
+        {
+          "text": "The report states whether the point tensor is 4D or 5D and explains each dimension from code evidence.",
+          "passed": true,
+          "evidence": "The report states that the point tensor is 5D: `x, y, z, intensity, timestamp_lag`, backed by `load_dim=5` and the dataset tensor shape."
+        },
+        {
+          "text": "The report explains the voxel/pillar to BEV feature construction path.",
+          "passed": true,
+          "evidence": "The report explains the `PillarFeatureNet -> PointPillarsScatter -> SECOND` BEV pipeline and the 1440x1440 BEV canvas."
+        },
+        {
+          "text": "The report describes how CenterHead decodes 3D boxes and what the output fields mean.",
+          "passed": true,
+          "evidence": "The report describes the CenterHead outputs (`heatmap`, `reg`, `height`, `dim`, `rot`, `vel`) and says `decode_heatmap` is a placeholder that returns zero boxes."
+        },
+        {
+          "text": "The report mentions at least one LiDAR paper name and the code evidence for the mapping.",
+          "passed": true,
+          "evidence": "The report maps the structure to PointPillars, SECOND, and CenterPoint, with an explicit caveat that decoding and loss are stubs."
+        }
+      ],
+      "notes": [
+        "The report is a solid code-reading summary, but the eval assertions mostly check coverage rather than deep correctness.",
+        "This run did not reveal a failure mode that distinguishes the skill from a strong baseline."
+      ]
+    },
+    {
+      "eval_id": 2,
+      "eval_name": "lane-map-targets",
+      "configuration": "with_skill",
+      "run_number": 1,
+      "result": {
+        "pass_rate": 1.0,
+        "passed": 4,
+        "failed": 0,
+        "total": 4,
+        "time_seconds": 314.214,
+        "tokens": 0,
+        "tool_calls": 0,
+        "errors": 0
+      },
+      "expectations": [
+        {
+          "text": "The report names the lane types or map element types used by the fixture.",
+          "passed": true,
+          "evidence": "The report names the lane types used by the fixture and distinguishes them from the broader `map_classes` vocabulary."
+        },
+        {
+          "text": "The report explains how lane annotations are converted into model targets or normalized points.",
+          "passed": true,
+          "evidence": "The report explains how lane annotations are converted into fixed-length targets with `lane_points`, `lane_labels`, and `lane_adj`, including normalization to `pc_range`."
+        },
+        {
+          "text": "The report describes the decoder and topology head outputs in concrete terms.",
+          "passed": true,
+          "evidence": "The report describes the decoder outputs and the topology head output concretely as polyline tensors, class logits, and a 100x100 adjacency matrix."
+        },
+        {
+          "text": "The report mentions at least one lane or vectorized map perception paper name with code evidence or caveat.",
+          "passed": true,
+          "evidence": "The report mentions MapTR, MapTRv2, VectorMapNet, and StreamMapNet while explicitly noting the references are representative because web search was not used."
+        }
+      ],
+      "notes": [
+        "The report is a solid code-reading summary, but the eval assertions mostly check coverage rather than deep correctness.",
+        "This run did not reveal a failure mode that distinguishes the skill from a strong baseline."
+      ]
+    },
+    {
+      "eval_id": 2,
+      "eval_name": "lane-map-targets",
+      "configuration": "without_skill",
+      "run_number": 1,
+      "result": {
+        "pass_rate": 1.0,
+        "passed": 4,
+        "failed": 0,
+        "total": 4,
+        "time_seconds": 93.146,
+        "tokens": 0,
+        "tool_calls": 0,
+        "errors": 0
+      },
+      "expectations": [
+        {
+          "text": "The report names the lane types or map element types used by the fixture.",
+          "passed": true,
+          "evidence": "The report names the lane types used by the fixture and distinguishes them from the broader `map_classes` vocabulary."
+        },
+        {
+          "text": "The report explains how lane annotations are converted into model targets or normalized points.",
+          "passed": true,
+          "evidence": "The report explains how lane annotations are converted into fixed-length targets with `lane_points`, `lane_labels`, and `lane_adj`, including normalization to `pc_range`."
+        },
+        {
+          "text": "The report describes the decoder and topology head outputs in concrete terms.",
+          "passed": true,
+          "evidence": "The report describes the decoder outputs and the topology head output concretely as polyline tensors, class logits, and a 100x100 adjacency matrix."
+        },
+        {
+          "text": "The report mentions at least one lane or vectorized map perception paper name with code evidence or caveat.",
+          "passed": true,
+          "evidence": "The report mentions MapTR, MapTRv2, VectorMapNet, and StreamMapNet while explicitly noting the references are representative because web search was not used."
+        }
+      ],
+      "notes": [
+        "The report is a solid code-reading summary, but the eval assertions mostly check coverage rather than deep correctness.",
+        "This run did not reveal a failure mode that distinguishes the skill from a strong baseline."
+      ]
+    }
+  ],
+  "run_summary": {
+    "with_skill": {
+      "pass_rate": {
+        "mean": 1.0,
+        "stddev": 0.0,
+        "min": 1.0,
+        "max": 1.0
+      },
+      "time_seconds": {
+        "mean": 236.983,
+        "stddev": 57.3342,
+        "min": 176.982,
+        "max": 314.214
+      },
+      "tokens": {
+        "mean": 0,
+        "stddev": 0.0,
+        "min": 0,
+        "max": 0
+      }
+    },
+    "without_skill": {
+      "pass_rate": {
+        "mean": 1.0,
+        "stddev": 0.0,
+        "min": 1.0,
+        "max": 1.0
+      },
+      "time_seconds": {
+        "mean": 164.5913,
+        "stddev": 110.9067,
+        "min": 79.392,
+        "max": 321.236
+      },
+      "tokens": {
+        "mean": 0,
+        "stddev": 0.0,
+        "min": 0,
+        "max": 0
+      }
+    },
+    "delta": {
+      "pass_rate": "+0.00",
+      "time_seconds": "+72.4",
+      "tokens": "+0"
+    }
+  },
+  "notes": [
+    "All expectations passed in both configurations, so these evals currently measure completeness more than skill-specific advantage.",
+    "The with_skill runs were slower on camera and lane but faster on lidar; the single-run setup makes timing noisy.",
+    "The strongest missing check is whether the reports correctly call out placeholder decode/loss behavior as incomplete implementation rather than real inference.",
+    "The benchmark is useful as a documentation sanity check, but it is not yet a discriminative skill benchmark."
+  ]
+}

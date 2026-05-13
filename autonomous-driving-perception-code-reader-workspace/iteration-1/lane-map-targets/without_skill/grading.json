@@ -1,0 +1,52 @@
+{
+  "expectations": [
+    {
+      "text": "The report names the lane types or map element types used by the fixture.",
+      "passed": true,
+      "evidence": "The report names the lane types used by the fixture and distinguishes them from the broader `map_classes` vocabulary."
+    },
+    {
+      "text": "The report explains how lane annotations are converted into model targets or normalized points.",
+      "passed": true,
+      "evidence": "The report explains how lane annotations are converted into fixed-length targets with `lane_points`, `lane_labels`, and `lane_adj`, including normalization to `pc_range`."
+    },
+    {
+      "text": "The report describes the decoder and topology head outputs in concrete terms.",
+      "passed": true,
+      "evidence": "The report describes the decoder outputs and the topology head output concretely as polyline tensors, class logits, and a 100x100 adjacency matrix."
+    },
+    {
+      "text": "The report mentions at least one lane or vectorized map perception paper name with code evidence or caveat.",
+      "passed": true,
+      "evidence": "The report mentions MapTR, MapTRv2, VectorMapNet, and StreamMapNet while explicitly noting the references are representative because web search was not used."
+    }
+  ],
+  "summary": {
+    "passed": 4,
+    "failed": 0,
+    "total": 4,
+    "pass_rate": 1.0
+  },
+  "execution_metrics": {
+    "tool_calls": {},
+    "total_tool_calls": 0,
+    "total_steps": 0,
+    "errors_encountered": 0,
+    "output_chars": 4142,
+    "transcript_chars": 0
+  },
+  "timing": {
+    "executor_duration_seconds": 93.146,
+    "grader_duration_seconds": 0.0,
+    "total_duration_seconds": 93.146
+  },
+  "eval_feedback": {
+    "suggestions": [
+      {
+        "assertion": "The report meets the camera/LiDAR/lane requirement #1.",
+        "reason": "The baseline also passes every expectation, so there is no quantitative separation from the skill on this eval."
+      }
+    ],
+    "overall": "The baseline also passes every expectation, so there is no quantitative separation from the skill on this eval."
+  }
+}
