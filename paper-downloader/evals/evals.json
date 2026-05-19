@@ -1,0 +1,85 @@
+{
+  "skill_name": "paper-downloader",
+  "evals": [
+    {
+      "id": 0,
+      "prompt": "帮我下载最近2022-2026年自动驾驶-纯视觉-3D目标检测相关的论文",
+      "expected_output": "创建文件夹 论文下载/自动驾驶_纯视觉3D目标检测_2022-2026/，下载最多50篇论文，按引用量和开源代码排序，生成README.md表格含中文摘要",
+      "files": [],
+      "expectations": [
+        "创建中文命名的文件夹",
+        "从arXiv检索论文",
+        "按引用量和是否有代码排序",
+        "限制并发下载数为5",
+        "PDF文件使用中文命名",
+        "生成README.md含论文表格和中文摘要",
+        "生成metadata.json用于增量更新"
+      ]
+    },
+    {
+      "id": 1,
+      "prompt": "下载2023-2025年具身智能-机器人抓取相关的最新论文",
+      "expected_output": "创建文件夹 论文下载/具身智能_机器人抓取_2023-2025/，下载相关论文并生成中文摘要表格",
+      "files": [],
+      "expectations": [
+        "识别具身智能-机器人抓取方向",
+        "生成合适的搜索关键词",
+        "创建对应的文件夹结构",
+        "下载论文并组织",
+        "生成中文摘要"
+      ]
+    },
+    {
+      "id": 2,
+      "prompt": "帮我更新一下自动驾驶3D检测的论文",
+      "expected_output": "读取现有metadata.json，检索新论文，只下载新增论文，更新README.md表格",
+      "files": ["metadata.json"],
+      "expectations": [
+        "检测已下载的论文",
+        "只下载新论文",
+        "更新metadata.json",
+        "更新README.md表格",
+        "报告新增论文数量"
+      ]
+    },
+    {
+      "id": 3,
+      "prompt": "下载CVPR 2024关于occupancy prediction的论文",
+      "expected_output": "创建文件夹 论文下载/CVPR2024_占用预测/，下载CVPR 2024的占用预测相关论文",
+      "files": [],
+      "expectations": [
+        "识别会议=CVPR，年份=2024",
+        "生成occupancy prediction相关关键词",
+        "限定CVPR会议检索",
+        "下载并组织论文",
+        "生成中文摘要表格"
+      ]
+    },
+    {
+      "id": 4,
+      "prompt": "收集BEVFormer、BEVDepth、PETR这三篇论文",
+      "expected_output": "下载指定的三篇论文，创建对应文件夹，生成包含这三篇论文的README",
+      "files": [],
+      "expectations": [
+        "识别指定论文名称",
+        "精确检索这三篇论文",
+        "下载PDF文件",
+        "生成中文摘要",
+        "按引用量排序"
+      ]
+    },
+    {
+      "id": 5,
+      "prompt": "下载2024年最新的视觉语言模型相关论文",
+      "expected_output": "创建文件夹 论文下载/视觉语言模型_2024/，下载VLM相关论文",
+      "files": [],
+      "expectations": [
+        "识别视觉语言模型方向",
+        "生成VLM相关关键词",
+        "限定2024年时间范围",
+        "下载并组织论文",
+        "生成中文摘要表格"
+      ]
+    }
+  ]
+}

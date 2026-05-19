@@ -1,0 +1,90 @@
+{
+  "skill_name": "autonomous-driving-paper-reader",
+  "evals": [
+    {
+      "id": 0,
+      "prompt": "帮我读一下这篇BEVFormer的论文",
+      "expected_output": "提供完整的论文深度解读，包括基本信息、研究动机、模型架构详解（含伪代码和生活化类比）、关键技术创新点、损失函数、实验结果、工程化分析、优缺点总结",
+      "files": ["BEVFormer.pdf"],
+      "expectations": [
+        "提取论文基本信息",
+        "详细解析模型架构",
+        "提供伪代码实现和逐行解释",
+        "使用生活化类比解释复杂概念",
+        "分析工程化能力和部署考虑",
+        "输出为Markdown文件"
+      ]
+    },
+    {
+      "id": 1,
+      "prompt": "这个文件夹里都是做纯视觉3D检测的论文，帮我对比分析一下",
+      "expected_output": "提供文件夹级论文对比分析报告，包括基本信息汇总、技术路线对比、性能对比、改进点分析、工程化能力对比、发展趋势分析、综合推荐",
+      "files": ["paper1.pdf", "paper2.pdf", "paper3.pdf"],
+      "expectations": [
+        "扫描文件夹中的所有PDF",
+        "提取各论文核心方法和结果",
+        "以表格形式进行详细对比",
+        "分析各论文的改进点",
+        "对比工程化能力",
+        "分析发展趋势",
+        "提供综合推荐",
+        "输出为Markdown文件"
+      ]
+    },
+    {
+      "id": 2,
+      "prompt": "这篇论文里的view transform模块具体怎么实现的？",
+      "expected_output": "详细解释view transform模块的技术细节，包括功能定义、输入输出规格、核心算法、伪代码实现、生活化类比",
+      "files": ["paper_with_view_transform.pdf"],
+      "expectations": [
+        "准确识别view transform模块",
+        "详细解释技术细节",
+        "提供伪代码实现",
+        "逐行解释代码思想",
+        "使用生活化类比帮助理解",
+        "分析设计动机和优缺点"
+      ]
+    },
+    {
+      "id": 3,
+      "prompt": "对比分析BEVFormer和BEVDepth两篇论文的改进点",
+      "expected_output": "详细对比两篇论文的技术改进点，包括改进对象、改进方式、改进效果，使用伪代码展示差异",
+      "files": ["BEVFormer.pdf", "BEVDepth.pdf"],
+      "expectations": [
+        "提取两篇论文的核心改进点",
+        "对比分析改进方式的差异",
+        "使用伪代码展示技术差异",
+        "量化改进效果",
+        "分析各方法的优缺点",
+        "输出为Markdown文件"
+      ]
+    },
+    {
+      "id": 4,
+      "prompt": "这个方法实际部署会有什么问题？",
+      "expected_output": "分析论文方法的工程化部署问题，包括模型复杂度、TensorRT支持、ONNX导出、优化建议",
+      "files": ["paper.pdf"],
+      "expectations": [
+        "分析模型复杂度指标",
+        "评估TensorRT支持情况",
+        "评估ONNX导出兼容性",
+        "分析推理延迟和内存占用",
+        "提供优化建议",
+        "考虑实际部署场景"
+      ]
+    },
+    {
+      "id": 5,
+      "prompt": "用通俗的例子解释一下attention机制在这篇论文里是怎么用的",
+      "expected_output": "使用生活化的例子解释attention机制，结合论文具体实现，提供伪代码说明",
+      "files": ["paper_with_attention.pdf"],
+      "expectations": [
+        "使用通俗易懂的生活化类比",
+        "准确解释attention机制原理",
+        "结合论文具体实现",
+        "提供伪代码辅助说明",
+        "解释attention在论文中的作用"
+      ]
+    }
+  ]
+}
